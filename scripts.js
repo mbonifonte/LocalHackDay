@@ -90,3 +90,15 @@ function chooseColor() {
         }
     }
 }
+
+function redTeam() {
+  document.getElementById("demo").style.color = "red";
+  document.getElementById("demo").innerHTML = "Red Team!";
+  $("#redButton").hide();
+  $("#blueButton").hide();
+}
+
+function blueTeam() {
+  document.getElementById("demo").style.color = "blue";
+  document.getElementById("demo").innerHTML = "Blue Team!";
+}
