@@ -1,11 +1,4 @@
-var board = [
-    ["B", "B", "B", "B", "B"],
-    ["B", "B", "B", "B", "R"],
-    ["R", "R", "R", "R", "R"],
-    ["R", "R", "N", "N", "N"],
-    ["N", "N", "N", "N", "A"]
-];
-
+var types = [];
 var words = [
     ["A", "B", "C", "D", "E"],
     ["F", "G", "H", "I", "J"],
@@ -14,8 +7,37 @@ var words = [
     ["U", "V", "W", "X", "Y"]
 ];
 
+var redcount = 9;
+var bluecount = 8;
+var blackcount = 1;
+var graycount = 7;
+
+function chooseColor() {
+
+    var base = [];
+    types = [];
+
+    for(i = 0; i < redcount; i++)   base.push("R");
+    for(i = 0; i < bluecount; i++)  base.push("B");
+    for(i = 0; i < graycount; i++) base.push("N");
+    for(i = 0; i < blackcount; i++)  base.push("A");
+
+    shuffle(base);
+
+    var row = [];
+
+    for(i = 0; i < 5; i++){
+        for(j = 0; j < 5; j++)
+            row.push(base.pop());
+        types.push(row);
+        row = [];
+    }
+}
+
+
 $(document).ready(function () {
 
+    chooseColor();
     generateTable();
 
     // $('#btn-chat').click(function () {
@@ -29,68 +51,44 @@ $(document).ready(function () {
 
     function generateTable() {
         for (i = 0; i < 5; i++) {
-            $(".words table").append('<tr id = \"row-' + (i + 1) + '\"></div>');
+            $(".words table").append('<tr id = \"row-' + (i) + '\"></div>');
             var row = $("table #row-" + i);
-            for (j = 0; j < 5; j++) {
-                row.append("<td type='" + board[i][j] + "'>" + words[i][j] + "</td>");
-            }
+            for (j = 0; j < 5; j++)
+                row.append("<td type='" + types[i][j] + "'>" + words[i][j] + "</td>");
         }
     }
-
-});
-
-var redcount = 9;
-var bluecount = 8;
-var blackcount = 1;
-var graycount = 7;
-
-$(document).ready(function () {
-    $("td").each(function () {
-        $(this).prop('color', chooseColor());
-        alert($(this).attr());
-    });
 
     $("td").click(function () {
-        //if (color = "red") {
-        //    img.src = "images\red.jpg";
-        //} else {
-        //    if (color = "blue") {
-        //        img.src = "images\blue.jpg";
-        //    } else {
-        //        if (color = "gray") {
-        //            img.src = "images\gray.jpg";
-        //        } else {
-        //            img.src = "images\black.jpg";
-        //        }
-        //    }
-        //}
+        var color = $(this).attr('type');
+        if (color == "R") {
+            $(this).css('background', 'url("images/red.jpg")');
+        }
+        if (color == "B") {
+            $(this).css('background', 'url("images/blue.jpg")');
+        }
+        if (color == "N") {
+            $(this).css('background', 'url("images/gray.jpg")');
+        }
+        if (color == "A") {
+            $(this).css('background', 'url("images/black.jpg")');
+        }
     });
-
 });
 
-function chooseColor() {
-    var flag = true;
-    while (flag) {
-        var num = Math.random();
-        if (num >= 0 && num <= .25 && redcount > 0) {
-            redcount--;
-            return "red";
-        }
-        if (num > .25 && num <= .50 && bluecount > 0) {
-            bluecount--;
-            return "blue";
-        }
-        if (num > .50 && num <= .75 && greycount > 0) {
-            greycount--;
-            return "grey";
-        }
-        if (num > .75 && num <= 1 && blackcount > 0) {
-            blackcount--;
-            return "black";
-        }
+function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
+
+    while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
     }
+    return arra1;
 }
 
+<<<<<<< HEAD
 function redTeam() {
   document.getElementById("demo").style.color = "red";
   document.getElementById("demo").innerHTML = "Red Team!";
@@ -102,3 +100,6 @@ function blueTeam() {
   document.getElementById("demo").style.color = "blue";
   document.getElementById("demo").innerHTML = "Blue Team!";
 }
+=======
+
+>>>>>>> f367ae1fbea95affe6105eb622ebf42d9c36d0f3
