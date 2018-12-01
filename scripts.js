@@ -12,7 +12,7 @@ var bluecount = 8;
 var blackcount = 1;
 var graycount = 7;
 
-var turn = "R";
+
 
 function chooseColor() {
 
