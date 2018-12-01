@@ -88,7 +88,6 @@ function shuffle(arra1) {
     return arra1;
 }
 
-<<<<<<< HEAD
 function redTeam() {
   document.getElementById("demo").style.color = "red";
   document.getElementById("demo").innerHTML = "Red Team!";
@@ -100,6 +99,4 @@ function blueTeam() {
   document.getElementById("demo").style.color = "blue";
   document.getElementById("demo").innerHTML = "Blue Team!";
 }
-=======
 
->>>>>>> f367ae1fbea95affe6105eb622ebf42d9c36d0f3
