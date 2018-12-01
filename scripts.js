@@ -30,7 +30,6 @@ function chooseColor() {
         for(j = 0; j < 5; j++)
             row.push(base.pop());
         types.push(row);
-        alert(row);
         row = [];
     }
 }
