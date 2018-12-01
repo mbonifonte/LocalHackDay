@@ -12,6 +12,8 @@ var bluecount = 8;
 var blackcount = 1;
 var graycount = 7;
 
+var turn = "";
+
 function chooseColor() {
 
     var base = [];
@@ -94,11 +96,13 @@ function redTeam() {
   $("header").css("background-color", "red");
   $("#redButton").hide();
   $("#blueButton").hide();
+  turn = "R";
 }
 
 function blueTeam() {
   document.getElementById("demo").style.color = "white";
   document.getElementById("demo").innerHTML = "Blue Team's Turn!";
   $("header").css("background-color", "blue");
+  turn = "B";
 }
 
