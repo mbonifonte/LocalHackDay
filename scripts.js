@@ -73,6 +73,20 @@ $(document).ready(function () {
         }
         if (color == "A") {
             $(this).css('background', 'url("images/black.jpg")');
+            $("header").css("background-color", "black");
+        }
+
+        if (color != turn) {
+            if (turn == "R") {
+                turn = "B";
+                $("header").css("background-color", "blue");
+            } else {
+                if (turn == "B") {
+                    turn = "R"
+                    $("header").css("background-color", "red");
+                }
+            }
+            
         }
     });
 });
