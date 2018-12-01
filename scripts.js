@@ -59,22 +59,36 @@ $(document).ready(function () {
     }
 
     $("td").click(function () {
-        if(this)
-            var color = $(this).attr('type');
-            if (color == "R") {
-                $(this).css('background', 'url("images/red.jpg")');
+        var color = $(this).attr('type');
+        if (color == "R") {
+            $(this).css('background', 'url("images/red.jpg")');
+        }
+        if (color == "B") {
+            $(this).css('background', 'url("images/blue.jpg")');
+        }
+        if (color == "N") {
+            $(this).css('background', 'url("images/gray.jpg")');
+        }
+        if (color == "A") {
+            $(this).css('background', 'url("images/black.jpg")');
+            $("header").css("background-color", "black");
+        }
+
+        if (color != turn) {
+            if (turn == "R") {
+                turn = "B";
+                $("header").css("background-color", "blue");
+            } else {
+                if (turn == "B") {
+                    turn = "R"
+                    $("header").css("background-color", "red");
+                }
             }
-            if (color == "B") {
-                $(this).css('background', 'url("images/blue.jpg")');
-            }
-            if (color == "N") {
-                $(this).css('background', 'url("images/gray.jpg")');
-            }
-            if (color == "A") {
-                $(this).css('background', 'url("images/black.jpg")');
-            }
-            $(this).find("p").css("background-color", "#FCEDD8");
-            $(this).find("p").toggle();
+
+        }
+        
+        $(this).find("p").css("background-color", "#FCEDD8");
+        $(this).find("p").toggle();
     });
 });
 
