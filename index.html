@@ -90,7 +90,7 @@
     <!-- test menu -->
     <div class="container" style="float: left; width: 25%;">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5" style="width: 400px">
             <div class="panel panel-primary">
                 <div class="panel-heading" id="accordion">
                     <span class="glyphicon glyphicon-comment"></span> Chat
@@ -103,12 +103,12 @@
             <div class="panel-collapse collapse" id="collapseOne">
                 <div class="panel-body">
                     <ul class="chat">
- 
+                        <li> dasdadsadas</li>
                     </ul>
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." value=""/>
                         <span class="input-group-btn">
                             <button class="btn btn-warning btn-sm" id="btn-chat">
                                 Send</button>
@@ -120,6 +120,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#btn-chat').click(function () {
+            var ul = document.getElementById("chat");
+            var li = document.createElement("li");
+            var msg = document.getElementById('btn-input').value;
+            li.appendChild(document.createTextNode(msg));
+            ul.appendChild(li);
+            alert(msg);
+        });
+    });
+</script>
     <!-- test menu-->
 
 
