@@ -12,6 +12,8 @@ var bluecount = 8;
 var blackcount = 1;
 var graycount = 7;
 
+var turn = "R";
+
 function chooseColor() {
 
     var base = [];
@@ -71,6 +73,19 @@ $(document).ready(function () {
         }
         if (color == "A") {
             $(this).css('background', 'url("images/black.jpg")');
+        }
+        if (turn != color) {
+            if (turn == "R") {
+                document.getElementById("head").style.background = "blue";
+                turn = "B";
+            }
+            if (turn == "B") {
+                document.getElementById("head").style.background = "red";
+                turn = "R";
+            }
+            if (color == "black") {
+                document.getElementById("head").style.background = "black";
+            }
         }
     });
 });
