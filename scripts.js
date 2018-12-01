@@ -104,14 +104,16 @@ function shuffle(arra1) {
 }
 
 function redTeam() {
-  document.getElementById("demo").style.color = "red";
-  document.getElementById("demo").innerHTML = "Red Team!";
+  document.getElementById("demo").style.color = "white";
+  document.getElementById("demo").innerHTML = "Red Team's Turn!";
+  $("header").css("background-color", "red");
   $("#redButton").hide();
   $("#blueButton").hide();
 }
 
 function blueTeam() {
-  document.getElementById("demo").style.color = "blue";
-  document.getElementById("demo").innerHTML = "Blue Team!";
+  document.getElementById("demo").style.color = "white";
+  document.getElementById("demo").innerHTML = "Blue Team's Turn!";
+  $("header").css("background-color", "blue");
 }
 
