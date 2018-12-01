@@ -1,11 +1,4 @@
-var board = [
-    ["B", "B", "B", "B", "B"],
-    ["B", "B", "B", "B", "R"],
-    ["R", "R", "R", "R", "R"],
-    ["R", "R", "N", "N", "N"],
-    ["N", "N", "N", "N", "A"]
-];
-
+var types = [];
 var words = [
     ["A", "B", "C", "D", "E"],
     ["F", "G", "H", "I", "J"],
@@ -20,31 +13,32 @@ var blackcount = 1;
 var graycount = 7;
 
 function chooseColor() {
-    var flag = true;
-    while (flag) {
-        var num = Math.random();
-        if (num >= 0 && num <= .25 && redcount > 0) {
-            redcount--;
-            return "red";
-        }
-        if (num > .25 && num <= .50 && bluecount > 0) {
-            bluecount--;
-            return "blue";
-        }
-        if (num > .50 && num <= .75 && greycount > 0) {
-            greycount--;
-            return "grey";
-        }
-        if (num > .75 && num <= 1 && blackcount > 0) {
-            blackcount--;
-            return "black";
-        }
+
+    var base = [];
+    types = [];
+
+    for(i = 0; i < redcount; i++)   base.push("R");
+    for(i = 0; i < bluecount; i++)  base.push("B");
+    for(i = 0; i < blackcount; i++) base.push("N");
+    for(i = 0; i < graycount; i++)  base.push("A");
+
+    shuffle(base);
+
+    var row = [];
+
+    for(i = 0; i < 5; i++){
+        for(j = 0; j < 5; j++)
+            row.push(base.pop());
+        types.push(row);
+        alert(row);
+        row = [];
     }
 }
 
 
 $(document).ready(function () {
 
+    chooseColor();
     generateTable();
 
     // $('#btn-chat').click(function () {
@@ -58,21 +52,23 @@ $(document).ready(function () {
 
     function generateTable() {
         for (i = 0; i < 5; i++) {
-            $(".words table").append('<tr id = \"row-' + (i + 1) + '\"></div>');
+            $(".words table").append('<tr id = \"row-' + (i) + '\"></div>');
             var row = $("table #row-" + i);
-            for (j = 0; j < 5; j++) {
-                row.append("<td type='" + board[i][j] + "'>" + words[i][j] + "</td>");
-            }
+            for (j = 0; j < 5; j++)
+                row.append("<td type='" + types[i][j] + "'>" + words[i][j] + "</td>");
         }
     }
-
-    $("td").each(function () {
-        $(this).prop('color', chooseColor());
-        alert($(this).attr());
-    });
 });
 
+function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
 
-
-
-
+    while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
