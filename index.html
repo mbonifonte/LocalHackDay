@@ -12,11 +12,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+    <!-- test chat menu -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- test chat menu -->
 </head>
 <body>
     <header>
         Codenames
     </header>
+    <div class="words" style="width:74%; float: left;">
         <table style="width:65%">
             <tr>
                 <td><img src="images/test.jpg" /></td>
@@ -60,6 +67,61 @@
         <img src="images/blue.jpg" />
         <img src="images/black.jpg" />
     </div>
+
+    <script>
+        function placeImage(color, img) {
+            if (color = "red") {
+                img.src = "images\red.jpg";
+            } else {
+                if (color = "blue") {
+                    img.src = "images\blue.jpg";
+                } else {
+                    if (color = "gray") {
+                        img.src = "images\gray.jpg";
+                    } else {
+                        img.src = "images\black.jpg";
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <!-- test menu -->
+    <div class="container" style="float: left; width: 25%;">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+            <div class="panel-collapse collapse" id="collapseOne">
+                <div class="panel-body">
+                    <ul class="chat">
+ 
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- test menu-->
+
 
 </body>
     <system.web>
