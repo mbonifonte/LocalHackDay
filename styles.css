@@ -41,6 +41,11 @@ header {
 
 }
 
+.words td p
+{
+    border-radius: 10px;
+}
+
 .chat-div {
     float: left;
 }
@@ -123,3 +128,5 @@ header {
 .redButton {background-color: #f44336;}
 
 .blueButton {background-color: #008CBA;}
+
+.spyButton {background-color: #666;}

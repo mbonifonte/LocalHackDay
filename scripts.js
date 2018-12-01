@@ -12,8 +12,6 @@ var bluecount = 8;
 var blackcount = 1;
 var graycount = 7;
 
-var turn = "";
-
 function chooseColor() {
 
     var base = [];
@@ -56,24 +54,27 @@ $(document).ready(function () {
             $(".words table").append('<tr id = \"row-' + (i) + '\"></div>');
             var row = $("table #row-" + i);
             for (j = 0; j < 5; j++)
-                row.append("<td type='" + types[i][j] + "'>" + words[i][j] + "</td>");
+                row.append("<td type='" + types[i][j] + "'><p>" + words[i][j] + "</p></td>");
         }
     }
 
     $("td").click(function () {
-        var color = $(this).attr('type');
-        if (color == "R") {
-            $(this).css('background', 'url("images/red.jpg")');
-        }
-        if (color == "B") {
-            $(this).css('background', 'url("images/blue.jpg")');
-        }
-        if (color == "N") {
-            $(this).css('background', 'url("images/gray.jpg")');
-        }
-        if (color == "A") {
-            $(this).css('background', 'url("images/black.jpg")');
-        }
+        if(this)
+            var color = $(this).attr('type');
+            if (color == "R") {
+                $(this).css('background', 'url("images/red.jpg")');
+            }
+            if (color == "B") {
+                $(this).css('background', 'url("images/blue.jpg")');
+            }
+            if (color == "N") {
+                $(this).css('background', 'url("images/gray.jpg")');
+            }
+            if (color == "A") {
+                $(this).css('background', 'url("images/black.jpg")');
+            }
+            $(this).find("p").css("background-color", "#FCEDD8");
+            $(this).find("p").toggle();
     });
 });
 
@@ -96,13 +97,31 @@ function redTeam() {
   $("header").css("background-color", "red");
   $("#redButton").hide();
   $("#blueButton").hide();
-  turn = "R";
-}
+  $("td").each(function( index ) {
+      $(this).css('color', 'black')});
+  }
 
 function blueTeam() {
   document.getElementById("demo").style.color = "white";
   document.getElementById("demo").innerHTML = "Blue Team's Turn!";
   $("header").css("background-color", "blue");
-  turn = "B";
+  $("td").each(function( index ) {
+      $(this).css('color', 'black')});
 }
 
+function spymaster() {
+  document.getElementById("demo").style.color = "white";
+  document.getElementById("demo").innerHTML = "Spymaster!";
+  $("header").css("background-color", "grey");
+  $("td").each(function( index ) {
+      var color = $(this).attr('type');
+      if (color == "R")
+        $(this).css('color', 'red');
+      if (color == "B")
+        $(this).css('color', 'blue');
+      if (color == "N")
+        $(this).css('color', 'grey');
+      if (color == "A")
+        $(this).css('color', 'black');
+  });
+}
