@@ -12,7 +12,7 @@ var bluecount = 8;
 var blackcount = 1;
 var graycount = 7;
 
-
+var turn = "";
 
 function chooseColor() {
 
@@ -74,19 +74,6 @@ $(document).ready(function () {
         if (color == "A") {
             $(this).css('background', 'url("images/black.jpg")');
         }
-        if (turn != color) {
-            if (turn == "R") {
-                document.getElementById("head").style.background = "blue";
-                turn = "B";
-            }
-            if (turn == "B") {
-                document.getElementById("head").style.background = "red";
-                turn = "R";
-            }
-            if (color == "black") {
-                document.getElementById("head").style.background = "black";
-            }
-        }
     });
 });
 
@@ -109,11 +96,13 @@ function redTeam() {
   $("header").css("background-color", "red");
   $("#redButton").hide();
   $("#blueButton").hide();
+  turn = "R";
 }
 
 function blueTeam() {
   document.getElementById("demo").style.color = "white";
   document.getElementById("demo").innerHTML = "Blue Team's Turn!";
   $("header").css("background-color", "blue");
+  turn = "B";
 }
 
