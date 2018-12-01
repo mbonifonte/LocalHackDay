@@ -19,8 +19,8 @@ function chooseColor() {
 
     for(i = 0; i < redcount; i++)   base.push("R");
     for(i = 0; i < bluecount; i++)  base.push("B");
-    for(i = 0; i < blackcount; i++) base.push("N");
-    for(i = 0; i < graycount; i++)  base.push("A");
+    for(i = 0; i < graycount; i++) base.push("N");
+    for(i = 0; i < blackcount; i++)  base.push("A");
 
     shuffle(base);
 
@@ -57,6 +57,22 @@ $(document).ready(function () {
                 row.append("<td type='" + types[i][j] + "'>" + words[i][j] + "</td>");
         }
     }
+
+    $("td").click(function () {
+        var color = $(this).attr('type');
+        if (color == "R") {
+            $(this).css('background', 'url("images/red.jpg")');
+        }
+        if (color == "B") {
+            $(this).css('background', 'url("images/blue.jpg")');
+        }
+        if (color == "N") {
+            $(this).css('background', 'url("images/gray.jpg")');
+        }
+        if (color == "A") {
+            $(this).css('background', 'url("images/black.jpg")');
+        }
+    });
 });
 
 function shuffle(arra1) {
@@ -71,3 +87,5 @@ function shuffle(arra1) {
     }
     return arra1;
 }
+
+
