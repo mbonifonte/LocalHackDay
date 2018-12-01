@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title> Codenames Online!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -61,23 +61,23 @@
                 <td></td>
             </tr>
         </table>
-        <img src="images/red.jpg" />
-        <img src="images/blue.jpg" />
-        <img src="images/black.jpg" />
+        <img src="static/images/red.jpg" />
+        <img src="static/images/blue.jpg" />
+        <img src="static/images/black.jpg" />
     </div>
 
     <script>
         function placeImage(color, img) {
             if (color = "red") {
-                img.src = "images\red.jpg";
+                img.src = "static/images\red.jpg";
             } else {
                 if (color = "blue") {
-                    img.src = "images\blue.jpg";
+                    img.src = "static/images\blue.jpg";
                 } else {
                     if (color = "gray") {
-                        img.src = "images\gray.jpg";
+                        img.src = "static/images\gray.jpg";
                     } else {
-                        img.src = "images\black.jpg";
+                        img.src = "static/images\black.jpg";
                     }
                 }
             }
