@@ -15,24 +15,44 @@ header {
     padding: 40px;
 }
 
-img
-{
-    width:200px;
-    height:133px;
+.words {
+    min-width: 800px;
+    width: 70%;
+    float: left;
 }
 
-.words {
- 
+.words table {
+    width: 100%;
 }
+
+.words td
+{
+    background: url("images/Card-base.jpg");
+    width: 20%;
+    margin: 10px;
+    height: 130px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    font-size: 30px;
+    padding-top: 2vh;
+
+}
+
+.chat-div {
+    float: left;
+}
+
 
 
 /*
-    bootstrap chat  
+    bootstrap chat
 */
 
 
 .chat {
-    
+
 }
 
     .chat li {
@@ -83,5 +103,5 @@ img
        ^
        |
        |
-    bootstrap chat 
+    bootstrap chat
 */
