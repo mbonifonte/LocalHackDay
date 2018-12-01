@@ -1,6 +1,7 @@
 ﻿body
 {
     margin: 0;
+    background-color: silver !important;
 }
 
 header {
@@ -8,8 +9,8 @@ header {
     text-align: center;
 
     width: 100%;
-    background-color: orange;
-    color: white;
+    background-color: gray;
+    color: black;
     height: 175px;
     font-size: 3em;
     padding: 40px;
