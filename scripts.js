@@ -11,6 +11,7 @@ var redcount = 9;
 var bluecount = 8;
 var blackcount = 1;
 var graycount = 7;
+var turn = "";
 
 function chooseColor() {
 
@@ -60,24 +61,39 @@ $(document).ready(function () {
 
     $("td").click(function () {
         var color = $(this).attr('type');
+
         if (color == "R") {
             $(this).css('background', 'url("images/red.jpg")');
+            $("header").css("background-color", "red");
+            document.getElementById("demo").innerHTML = "Red Team's Turn!";
         }
         if (color == "B") {
             $(this).css('background', 'url("images/blue.jpg")');
+            $("header").css("background-color", "blue");
+            document.getElementById("demo").innerHTML = "Blue Team's Turn!";
+
         }
         if (color == "N") {
+            if($("header").css("background-color") == "blue"){
+                redTeam();
+            }
+            if($("header").css("background-color") == "red"){
+                blueTeam();
+            }
             $(this).css('background', 'url("images/gray.jpg")');
         }
         if (color == "A") {
             $(this).css('background', 'url("images/black.jpg")');
             $("header").css("background-color", "black");
+            document.getElementById("demo").innerHTML = "You Lose!";
         }
+
+        $(this).find("p").css("background-color", "#FCEDD8");
+        $(this).find("p").toggle();
 
         if (color != turn) {
             if (turn == "R") {
                 turn = "B";
-                $("header").css("background-color", "blue");
             } else {
                 if (turn == "B") {
                     turn = "R"
@@ -86,9 +102,7 @@ $(document).ready(function () {
             }
 
         }
-        
-        $(this).find("p").css("background-color", "#FCEDD8");
-        $(this).find("p").toggle();
+
     });
 });
 
