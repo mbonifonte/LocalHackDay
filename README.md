@@ -1,3 +1,3 @@
 # LocalHackDay
 
-Project can be found at https://codenamesur.azurewebsites.net/
+Starter code for a web-app implementation of the board game "Codenames"
